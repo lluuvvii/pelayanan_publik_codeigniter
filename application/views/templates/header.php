@@ -28,9 +28,6 @@
       <span class="subtitle-font">Sistem Informasi Pelayanan Publik</span>
     </a>
   </div>
-  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
   <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mr-auto">
           <li class="nav-item">
@@ -40,6 +37,20 @@
               <a class="nav-link" href="<?php echo base_url('layanan/create'); ?>">Tambah Data</a>
           </li>
       </ul>
+      <ul class="navbar-nav ml-auto">
+                <?php if ($this->session->userdata('logged_in')): ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo base_url('users/logout'); ?>">Logout</a>
+                        </li>
+                    <?php else: ?>
+                          <li class="nav-item">
+                            <a class="nav-link" href="<?php echo base_url('users/login'); ?>">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo base_url('users/register'); ?>">Register</a>
+                        </li>
+                <?php endif; ?>
+                    </ul>
   </div>
 </nav>
 <div class="container">
