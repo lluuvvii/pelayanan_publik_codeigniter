@@ -15,6 +15,15 @@ class Layanan extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
+    public function search() {
+      $keyword = $this->input->post('keyword');
+      $data['layanan'] = $this->Layanan_model->search_layanan($keyword);
+  
+      $this->load->view('templates/header');
+      $this->load->view('layanan/index', $data);
+      $this->load->view('templates/footer');
+  }  
+
     public function create() {
         $this->load->library('form_validation');
 

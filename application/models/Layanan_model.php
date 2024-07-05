@@ -10,6 +10,13 @@ class Layanan_model extends CI_Model {
         return $query->result_array();
     }
 
+    public function search_layanan($keyword) {
+      $this->db->like('nama', $keyword);
+      $this->db->or_like('layanan', $keyword);
+      $query = $this->db->get('layanan_publik');
+      return $query->result_array();
+  }
+  
     public function create_layanan() {
         $data = array(
             'nama' => $this->input->post('nama'),
